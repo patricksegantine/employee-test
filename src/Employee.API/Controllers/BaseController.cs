@@ -1,4 +1,4 @@
-﻿using Employee.Core.Contracts;
+﻿using Employee.SharedKernel.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Net;

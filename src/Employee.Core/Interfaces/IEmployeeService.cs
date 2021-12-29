@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Employee.Core.Contracts
+namespace Employee.Core.Interfaces
 {
     public interface IEmployeeService
     {

@@ -1,7 +1,7 @@
-﻿using Employee.Core.Contracts;
+﻿using Employee.Core.Interfaces;
 using Employee.Core.Services;
-using Employee.Repo.Contracts;
-using Employee.Repo.Repositories;
+using Employee.Infrastructure.Data;
+using Employee.SharedKernel.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Employee.API.Configs
@@ -15,7 +15,7 @@ namespace Employee.API.Configs
             services.AddScoped<IEmployeeService, EmployeeService>();
 
             // Repositories
-            services.AddScoped<IRepository<Entity.Models.Employee>, FakeEmployeeRepository>();
+            services.AddScoped<IRepository<Core.Entities.Employee>, FakeEmployeeRepository>();
         }
     }
 }

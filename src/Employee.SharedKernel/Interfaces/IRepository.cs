@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Employee.Repo.Contracts
+namespace Employee.SharedKernel.Interfaces
 {
     public interface IRepository<T>
     {

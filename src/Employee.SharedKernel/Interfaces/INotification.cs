@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Employee.Core.Contracts
+namespace Employee.SharedKernel.Interfaces
 {
     public interface INotification
     {

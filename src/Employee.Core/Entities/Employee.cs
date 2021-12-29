@@ -1,12 +1,10 @@
-﻿using System.Text.Json.Serialization;
+﻿using Employee.Entity.Models;
+using System.Text.Json.Serialization;
 
-namespace Employee.Entity.Models
+namespace Employee.Core.Entities
 {
-    public class Employee
+    public class Employee : BaseEntity
     {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
         [JsonPropertyName("department")]
         public string DepartmentName { get; set; }
 

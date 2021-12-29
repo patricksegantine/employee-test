@@ -1,5 +1,6 @@
-﻿using Employee.Core.Contracts;
-using Employee.Core.DTOs;
+﻿using Employee.Core.DTOs;
+using Employee.Core.Interfaces;
+using Employee.SharedKernel.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;

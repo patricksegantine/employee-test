@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Employee.Core\Employee.Core.csproj" />
+    <ProjectReference Include="..\Employee.SharedKernel\Employee.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

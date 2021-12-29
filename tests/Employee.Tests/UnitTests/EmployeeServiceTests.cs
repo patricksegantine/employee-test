@@ -1,7 +1,6 @@
-﻿using Employee.Core.Contracts;
-using Employee.Core.DTOs;
+﻿using Employee.Core.DTOs;
 using Employee.Core.Services;
-using Employee.Repo.Contracts;
+using Employee.SharedKernel.Interfaces;
 using FluentAssertions;
 using Moq;
 using Moq.AutoMock;
@@ -31,8 +30,8 @@ namespace Employee.Tests.UnitTests
                 .Setup(s => s.AddNotification(It.IsAny<string>()))
                 .Verifiable();
 
-            _mocker.GetMock<IRepository<Entity.Models.Employee>>()
-                .Setup(s => s.GetAll(It.IsAny<Func<Entity.Models.Employee, bool>>()))
+            _mocker.GetMock<IRepository<Core.Entities.Employee>>()
+                .Setup(s => s.GetAll(It.IsAny<Func<Core.Entities.Employee, bool>>()))
                 .ReturnsAsync(() => Mock.EmployeeMock.GetFakeData());
 
             var expected = Mock.EmployeeMock.GetAll2ndHeighEmployeeSalaryByDepartment();
@@ -54,8 +53,8 @@ namespace Employee.Tests.UnitTests
                 .Setup(s => s.AddNotification(It.IsAny<string>()))
                 .Verifiable();
 
-            _mocker.GetMock<IRepository<Entity.Models.Employee>>()
-                .Setup(s => s.GetAll(It.IsAny<Func<Entity.Models.Employee, bool>>()))
+            _mocker.GetMock<IRepository<Core.Entities.Employee>>()
+                .Setup(s => s.GetAll(It.IsAny<Func<Core.Entities.Employee, bool>>()))
                 .ReturnsAsync(() => Mock.EmployeeMock.GetFakeData().Where(d => d.DepartmentName == departmentName));
 
             var expected = Mock.EmployeeMock.Get2ndHeighEmployeeSalaryFromTIOnly();
@@ -77,8 +76,8 @@ namespace Employee.Tests.UnitTests
                 .Setup(s => s.AddNotification(It.IsAny<string>()))
                 .Verifiable();
 
-            _mocker.GetMock<IRepository<Entity.Models.Employee>>()
-                .Setup(s => s.GetAll(It.IsAny<Func<Entity.Models.Employee, bool>>()))
+            _mocker.GetMock<IRepository<Core.Entities.Employee>>()
+                .Setup(s => s.GetAll(It.IsAny<Func<Core.Entities.Employee, bool>>()))
                 .ReturnsAsync(() => null);
 
             Func<Task<IEnumerable<GetEmployeeSalaryResponse>>> func = async () => await _employeeServiceMock.Get2ndHeighEmployeeSalaryByDepartment(new GetEmployeeSalaryRequest { DepartmentName = departmentName });

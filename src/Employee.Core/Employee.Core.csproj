@@ -5,8 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Employee.Entity\Employee.Entity.csproj" />
-    <ProjectReference Include="..\Employee.Repo\Employee.Repo.csproj" />
+    <Folder Include="Entities\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Models\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="ValueObjects\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Employee.SharedKernel\Employee.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
-﻿using Employee.Core.Contracts;
-using Employee.Core.DTOs;
-using Employee.Repo.Contracts;
+﻿using Employee.Core.DTOs;
+using Employee.Core.Interfaces;
+using Employee.SharedKernel.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,10 +9,10 @@ namespace Employee.Core.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private readonly IRepository<Entity.Models.Employee> _repo;
+        private readonly IRepository<Entities.Employee> _repo;
         private readonly INotification _notification;
 
-        public EmployeeService(IRepository<Entity.Models.Employee> repo, INotification notification)
+        public EmployeeService(IRepository<Entities.Employee> repo, INotification notification)
         {
             _repo = repo;
             _notification = notification;
@@ -20,7 +20,7 @@ namespace Employee.Core.Services
 
         public async Task<IEnumerable<GetEmployeeSalaryResponse>> Get2ndHeighEmployeeSalaryByDepartment(GetEmployeeSalaryRequest filter)
         {
-            IEnumerable<Entity.Models.Employee> employees;
+            IEnumerable<Entities.Employee> employees;
 
             if (!string.IsNullOrWhiteSpace(filter?.DepartmentName))
                 employees = await _repo.GetAll(s => s.DepartmentName.Equals(filter.DepartmentName, System.StringComparison.InvariantCultureIgnoreCase));
